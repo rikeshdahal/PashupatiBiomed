@@ -41,6 +41,52 @@
         }
     </script>
     <style type="text/css">
+         .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .product-card {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin: 0 10px;
+        }
+
+        @media (min-width: 640px) {
+            .product-card {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .product-card {
+                flex: 0 0 33.333%;
+                max-width: 33.333%;
+            }
+        }
+
+        .swap-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .next-button {
+            right: 10px;
+        }
         /* Custom styles */
         .hero-image {
             background-image: linear-gradient(to right, rgba(0, 31, 128, 0.9), rgba(0, 31, 128, 0.7)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
@@ -494,124 +540,138 @@
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-navy-800 dark:text-white mb-4">Our Products</h2>
                     <div class="w-20 h-1 bg-navy-600 mx-auto mb-6"></div>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">Explore our range of
-                        high-quality medical equipment designed for various healthcare needs.</p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Explore our range of high-quality medical equipment designed for various healthcare needs.
+                    </p>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1583912372325-0c5be28e3590?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="Diagnostic Equipment" class="w-full h-48 object-cover rounded-md">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Diagnostic Equipment</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Advanced diagnostic tools for accurate and
-                                efficient patient assessment.</p>
-                            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                                <li class="flex items-center">
-                                    <svg class="w-4 h-4 mr-2 text-navy-600 dark:text-navy-300" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Ultrasound Machines
-                                </li>
-                                <li class="flex items-center">
-                                    <svg class="w-4 h-4 mr-2 text-navy-600 dark:text-navy-300" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    ECG Machines
-                                </li>
-                                <li class="flex items-center">
-                                    <svg class="w-4 h-4 mr-2 text-navy-600 dark:text-navy-300" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    X-ray Systems
-                                </li>
-                            </ul>
+    
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Product Cards -->
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/pipeline-shield-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Pipeline™ Flex with Shield Technology™" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Pipeline™ Flex with Shield Technology™</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Third-generation embolization device for intracranial aneurysm treatment.</p>
+                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/pipeline-shield-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
+                        </div>
+    
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/phenom-catheter-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Phenom™ Catheter" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Phenom™ Catheter</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Device deployment solution for hemorrhagic and acute ischemic stroke.</p>
+                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/phenom-catheter-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
+                        </div>
+    
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://medtronic.scene7.com/is/image/Medtronic/navien-intracranial-catheter-prodmast?id=to7ra1&fmt=jpg&dpr=off&fit=constrain,1&wid=580&hei=326" alt="Navien™ Intracranial Support Catheter" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Navien™ Intracranial Support Catheter</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Flexible catheter with hydrophilic coating for reduced friction.</p>
+                                <a href="https://medtronic.scene7.com/is/image/Medtronic/navien-intracranial-catheter-prodmast?id=to7ra1&fmt=jpg&dpr=off&fit=constrain,1&wid=580&hei=326" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
+                        </div>
+    
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/solitaire-x-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Solitaire™ X Revascularization Device" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Solitaire™ X Revascularization Device</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Designed for clot retrieval during thrombectomies for stroke patients.</p>
+                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/solitaire-x-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
+                        </div>
+    
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/react-distal-access-catheter-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="React™ Catheter" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">React™ Catheter</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Nitinol construction for navigation during stroke procedures.</p>
+                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/react-distal-access-catheter-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
+                        </div>
+    
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/echelon-micro-catheter/echelon-micro-catheter-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Echelon™ Micro Catheter" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Echelon™ Micro Catheter</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Single-lumen catheter for neurovascular procedures.</p>
+                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/echelon-micro-catheter/echelon-micro-catheter-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
+                        </div>
+    
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/rebar-microcatheter-promast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Rebar™ Micro Catheter" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Rebar™ Micro Catheter</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">For delivery of devices or contrast media in vasculature.</p>
+                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/rebar-microcatheter-promast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
+                        </div>
+    
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/marksman-microcatheter-closeup-prod.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Marksman™ Catheter" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Marksman™ Catheter</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">For introduction of devices and infusion of agents.</p>
+                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/marksman-microcatheter-closeup-prod.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
+                        </div>
+    
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/spine-orthopedic/onyx_bottles_prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Onyx™ Liquid Embolic System" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Onyx™ Liquid Embolic System</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Injectable agent for presurgical embolization of bAVMs.</p>
+                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/spine-orthopedic/onyx_bottles_prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
+                        </div>
+    
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://europe.medtronic.com/content/dam/medtronic-com/xd-en/c/od08014-nv-access-delivery/mirage/mirage-header.jpg.transform/transformer-width-500/image.jpg" alt="Mirage™ 0.008 Hydrophilic Guidewire" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Mirage™ 0.008 Hydrophilic Guidewire</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Provides extra support and selectivity for navigation.</p>
+                                <a href="https://europe.medtronic.com/content/dam/medtronic-com/xd-en/c/od08014-nv-access-delivery/mirage/mirage-header.jpg.transform/transformer-width-500/image.jpg" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
+                        </div>
+    
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://europe.medtronic.com/content/dam/medtronic-com/xd-en/c/od08014-nv-access-delivery/apollo-marathon/apollo-marathon-header.jpg.transform/transformer-width-500/image.jpg" alt="Apollo™ and Marathon™" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Apollo™ and Marathon™</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Flow-directed catheters for embolization of AVM/AVFs.</p>
+                                <a href="https://europe.medtronic.com/content/dam/medtronic-com/xd-en/c/od08014-nv-access-delivery/apollo-marathon/apollo-marathon-header.jpg.transform/transformer-width-500/image.jpg" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
+                        </div>
+    
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://europe.medtronic.com/content/dam/medtronic-com/xd-en/c/od08014-nv-access-delivery/avigo/avigo-guidewire.png.transform/transformer-width-500/image.png" alt="Avigo™ Hydrophilic Guidewire" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Avigo™ Hydrophilic Guidewire</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Support for tracking and catheter stability.</p>
+                                <a href="https://europe.medtronic.com/content/dam/medtronic-com/xd-en/c/od08014-nv-access-delivery/avigo/avigo-guidewire.png.transform/transformer-width-500/image.png" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
+                        </div>
+    
+                        <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://global.medtronic.com/content/dam/medtronic-com/products/neurological/stroke/axium-detatchable-coil-frame-150x150.jpg" alt="Axium™ Detachable Coils" class="w-full h-48 object-contain rounded-md">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Axium™ Detachable Coils</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Optimal designs for coiling procedures with minimal kickback.</p>
+                                <a href="https://global.medtronic.com/content/dam/medtronic-com/products/neurological/stroke/axium-detatchable-coil-frame-150x150.jpg" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                            alt="Surgical Instruments" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Surgical Instruments</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Precision surgical tools for various
-                                medical procedures.</p>
-                            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                                <li class="flex items-center">
-                                    <svg class="w-4 h-4 mr-2 text-navy-600 dark:text-navy-300" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Laparoscopic Instruments
-                                </li>
-                                <li class="flex items-center">
-                                    <svg class="w-4 h-4 mr-2 text-navy-600 dark:text-navy-300" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Orthopedic Tools
-                                </li>
-                                <li class="flex items-center">
-                                    <svg class="w-4 h-4 mr-2 text-navy-600 dark:text-navy-300" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Neurosurgical Sets
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                            alt="Patient Monitoring" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Patient Monitoring</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Comprehensive monitoring solutions for
-                                critical care.</p>
-                            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                                <li class="flex items-center">
-                                    <svg class="w-4 h-4 mr-2 text-navy-600 dark:text-navy-300" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Vital Signs Monitors
-                                </li>
-                                <li class="flex items-center">
-                                    <svg class="w-4 h-4 mr-2 text-navy-600 dark:text-navy-300" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Cardiac Monitors
-                                </li>
-                                <li class="flex items-center">
-                                    <svg class="w-4 h-4 mr-2 text-navy-600 dark:text-navy-300" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    Neonatal Monitors
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+    
+                    <!-- Next Button -->
+                    <button class="swap-button next-button" onclick="nextSlide()">→</button>
                 </div>
-
+    
                 <div class="text-center mt-12">
-                    <a href="#contact"
-                        class="shake-button inline-block bg-navy-600 hover:bg-navy-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Request
-                        Product Catalog</a>
+                    <a href="#contact" class="shake-button inline-block bg-navy-600 hover:bg-navy-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Request Product Catalog</a>
                 </div>
             </div>
         </section>
@@ -957,6 +1017,32 @@
     </button>
 
     <script>
+        // products
+        let currentIndex = 0;
+        const track = document.getElementById('carouselTrack');
+        const slides = track.getElementsByClassName('product-card');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const slideWidth = slides[0].offsetWidth + 20; // Including margin
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        // Auto-scroll after 5 seconds delay
+        setInterval(() => {
+            nextSlide();
+        }, 5000);
+
+        // Update carousel on window resize for responsiveness
+        window.addEventListener('resize', updateCarousel);
+
+
+
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
