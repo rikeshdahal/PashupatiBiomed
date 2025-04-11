@@ -7,7 +7,7 @@
     <title>Pashupati Biomed PVT. LTD - Medical Equipment Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
@@ -41,7 +41,7 @@
         }
     </script>
     <style type="text/css">
-         .carousel-container {
+        .carousel-container {
             position: relative;
             overflow: hidden;
             width: 100%;
@@ -72,6 +72,37 @@
             }
         }
 
+        .info-button {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: bounce 0.5s ease;
+            z-index: 10;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+
         .swap-button {
             position: absolute;
             top: 50%;
@@ -99,9 +130,11 @@
         .next-button {
             right: 0;
         }
+
         .prev-button {
             left: 0;
         }
+
         /* Custom styles */
         .hero-image {
             background-image: linear-gradient(to right, rgba(0, 31, 128, 0.9), rgba(0, 31, 128, 0.7)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
@@ -116,15 +149,19 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        .case-card {
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
         .case-card:hover {
-            transform: translateY(-8px) rotate(1deg);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.25);
         }
 
         .dark .hero-image {
             background-image: linear-gradient(to right, rgba(0, 15, 64, 0.9), rgba(0, 15, 64, 0.7)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
         }
+
         .doctor-card {
             transition: all 0.3s ease-in-out;
         }
@@ -143,6 +180,7 @@
         .dark .hero-image {
             background-image: linear-gradient(to right, rgba(0, 15, 64, 0.9), rgba(0, 15, 64, 0.7)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
         }
+
         .mobile-menu {
             max-height: 0;
             overflow: hidden;
@@ -342,10 +380,13 @@
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
                     <a href="#home" class="flex items-center">
-                        <img src="https://i.postimg.cc/90BGCNcR/760d72f9-f371-43ac-a07a-b46ba0e28345.jpg" alt="Pashupati Biomed Logo" class="h-10 w-10 mr-2 rounded-full">
+                        <img src="https://i.postimg.cc/90BGCNcR/760d72f9-f371-43ac-a07a-b46ba0e28345.jpg"
+                            alt="Pashupati Biomed Logo" class="h-10 w-10 mr-2 rounded-full">
                     </a>
-                    
-                    <h1 class="text-xl font-bold text-navy-800 flex items-center hover:text-navy-600 dark:hover:text-navy-300 dark:text-white cursor-pointer">PASHUPATI BIOMED</h1>
+
+                    <h1
+                        class="text-xl font-bold text-navy-800 flex items-center hover:text-navy-600 dark:hover:text-navy-300 dark:text-white cursor-pointer">
+                        PASHUPATI BIOMED</h1>
                     <!-- <a href="#home" class="flex items-center">
                         <img src="https://i.postimg.cc/x8Rn5LPV/49b70991-0956-4729-87c3-98ef93c7b226.jpg" alt="Pashupati Biomed Logo" class="h-10 w-10 mr-2 rounded-full">
                     </a> -->
@@ -516,36 +557,108 @@
         </section>
         <!-- Doctors Section -->
         <section id="doctors" class="py-20 bg-white dark:bg-gray-900">
+
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-navy-800 dark:text-white mb-4">Our Doctors</h2>
                     <div class="w-20 h-1 bg-navy-600 mx-auto mb-6"></div>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">Meet our team of experienced medical professionals who collaborate with us to deliver exceptional healthcare solutions.</p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">Meet our team of experienced
+                        medical professionals who collaborate with us to deliver exceptional healthcare solutions.</p>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="doctor-card bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center overflow-hidden">
-                        <img src="https://i.postimg.cc/c4yYgZ4V/483612650-10160545803201916-3768451813837129907-n.jpg" alt="Dr. Arun Paudel" class="w-48 h-48 mx-auto mb-4 object-cover rounded-md">
+
+                    <!-- Doctor 1 -->
+                    <div
+                        class="doctor-card relative bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center overflow-hidden">
+                        <img src="https://i.postimg.cc/c4yYgZ4V/483612650-10160545803201916-3768451813837129907-n.jpg"
+                            alt="Dr. Arun Paudel" class="w-48 h-48 mx-auto mb-4 object-cover rounded-md">
                         <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Dr. Arun Paudel</h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-2">Neurologist</p>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">Specialist in neurological disorders with 12+ years experience</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-8">Specialist in neurological disorders
+                            with 12+ years experience</p>
+
+                        <input type="checkbox" id="info1" class="peer hidden">
+                        <label for="info1"
+                            class="fa fa-info info-button absolute bottom-4 left-1/2 transform -translate-x-1/2 cursor-pointer"></label>
+
+                        <div
+                            class="peer-checked:flex hidden flex-wrap justify-center gap-4 absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-900 p-4 rounded-xl shadow-lg z-20 w-64 max-w-full transition-all duration-300">
+                            <a href="https://facebook.com" target="_blank"
+                                class="text-blue-600 text-xl hover:scale-110 transition"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a href="https://instagram.com" target="_blank"
+                                class="text-pink-500 text-xl hover:scale-110 transition"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://x.com" target="_blank"
+                                class="text-black dark:text-white text-xl hover:scale-110 transition"><i
+                                    class="fab fa-x-twitter"></i></a>
+                            <a href="tel:+1234567890" class="text-green-600 text-xl hover:scale-110 transition"><i
+                                    class="fas fa-phone"></i></a>
+                        </div>
                     </div>
-                    <div class="doctor-card bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dr. John Smith" class="w-48 h-48 mx-auto mb-4 object-cover rounded-md">
+
+                    <!-- Doctor 2 -->
+                    <div
+                        class="doctor-card relative bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Dr. John Smith" class="w-48 h-48 mx-auto mb-4 object-cover rounded-md">
                         <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Dr. John Smith</h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-2">Cardiologist</p>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">15+ years of experience in cardiovascular medicine</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-8">15+ years of experience in
+                            cardiovascular medicine</p>
+
+                        <input type="checkbox" id="info2" class="peer hidden">
+                        <label for="info2"
+                            class="fa fa-info info-button absolute bottom-4 left-1/2 transform -translate-x-1/2 cursor-pointer"></label>
+
+                        <div
+                            class="peer-checked:flex hidden flex-wrap justify-center gap-4 absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-900 p-4 rounded-xl shadow-lg z-20 w-64 max-w-full transition-all duration-300">
+                            <a href="https://facebook.com" target="_blank"
+                                class="text-blue-600 text-xl hover:scale-110 transition"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a href="https://instagram.com" target="_blank"
+                                class="text-pink-500 text-xl hover:scale-110 transition"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://x.com" target="_blank"
+                                class="text-black dark:text-white text-xl hover:scale-110 transition"><i
+                                    class="fab fa-x-twitter"></i></a>
+                            <a href="tel:+1987654321" class="text-green-600 text-xl hover:scale-110 transition"><i
+                                    class="fas fa-phone"></i></a>
+                        </div>
                     </div>
 
-                    <div class="doctor-card bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dr. Sarah Johnson" class="w-48 h-48 mx-auto mb-4 object-cover rounded-md">
+                    <!-- Doctor 3 -->
+                    <div
+                        class="doctor-card relative bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Dr. Sarah Johnson" class="w-48 h-48 mx-auto mb-4 object-cover rounded-md">
                         <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Dr. Sarah Johnson</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-2">Orthopedic Surgeon </p>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">Expert in joint replacement with 10+ years experience</p>
-                    </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-2">Orthopedic Surgeon</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-8">Expert in joint replacement with 10+
+                            years experience</p>
 
-                    
+                        <input type="checkbox" id="info3" class="peer hidden">
+                        <label for="info3"
+                            class="fa fa-info info-button absolute bottom-4 left-1/2 transform -translate-x-1/2 cursor-pointer"></label>
+
+                        <div
+                            class="peer-checked:flex hidden flex-wrap justify-center gap-4 absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-900 p-4 rounded-xl shadow-lg z-20 w-64 max-w-full transition-all duration-300">
+                            <a href="https://facebook.com" target="_blank"
+                                class="text-blue-600 text-xl hover:scale-110 transition"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a href="https://instagram.com" target="_blank"
+                                class="text-pink-500 text-xl hover:scale-110 transition"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://x.com" target="_blank"
+                                class="text-black dark:text-white text-xl hover:scale-110 transition"><i
+                                    class="fab fa-x-twitter"></i></a>
+                            <a href="tel:+1122334455" class="text-green-600 text-xl hover:scale-110 transition"><i
+                                    class="fas fa-phone"></i></a>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
 
@@ -559,252 +672,452 @@
                         Explore our range of high-quality medical equipment designed for various healthcare needs.
                     </p>
                 </div>
-    
+
                 <div class="carousel-container">
                     <div class="carousel-track" id="carouselTrack">
                         <!-- Product Cards -->
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/pipeline-shield-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Pipeline™ Flex with Shield Technology™" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/vHF9dG2T/image.png"
+                                alt="Pipeline™ Flex with Shield Technology™"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Pipeline™ Flex with Shield Technology™</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">Third-generation embolization device for intracranial aneurysm treatment.</p>
-                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/pipeline-shield-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Pipeline™ Flex with
+                                    Shield Technology™</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Third-generation embolization device
+                                    for intracranial aneurysm treatment.</p>
+                                <a href="https://i.postimg.cc/vHF9dG2T/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
-    
+
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/phenom-catheter-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Phenom™ Catheter" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/7Pt4CNTT/image.png" alt="Phenom™ Catheter"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
                                 <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Phenom™ Catheter</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">Device deployment solution for hemorrhagic and acute ischemic stroke.</p>
-                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/phenom-catheter-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Device deployment solution for
+                                    hemorrhagic and acute ischemic stroke.</p>
+                                <a href="https://i.postimg.cc/7Pt4CNTT/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
-    
+
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://medtronic.scene7.com/is/image/Medtronic/navien-intracranial-catheter-prodmast?id=to7ra1&fmt=jpg&dpr=off&fit=constrain,1&wid=580&hei=326" alt="Navien™ Intracranial Support Catheter" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/Hs36WSJf/image.png"
+                                alt="Navien™ Intracranial Support Catheter"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Navien™ Intracranial Support Catheter</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">Flexible catheter with hydrophilic coating for reduced friction.</p>
-                                <a href="https://medtronic.scene7.com/is/image/Medtronic/navien-intracranial-catheter-prodmast?id=to7ra1&fmt=jpg&dpr=off&fit=constrain,1&wid=580&hei=326" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Navien™ Intracranial
+                                    Support Catheter</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Flexible catheter with hydrophilic
+                                    coating for reduced friction.</p>
+                                <a href="https://i.postimg.cc/Hs36WSJf/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
-    
+
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/solitaire-x-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Solitaire™ X Revascularization Device" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/fTBh4fMb/image.png"
+                                alt="Solitaire™ X Revascularization Device"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Solitaire™ X Revascularization Device</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">Designed for clot retrieval during thrombectomies for stroke patients.</p>
-                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/solitaire-x-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Solitaire™ X
+                                    Revascularization Device</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Designed for clot retrieval during
+                                    thrombectomies for stroke patients.</p>
+                                <a href="https://i.postimg.cc/fTBh4fMb/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
-    
+
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/react-distal-access-catheter-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="React™ Catheter" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/SNrYw3Xz/image.png" alt="React™ Catheter"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
                                 <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">React™ Catheter</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">Nitinol construction for navigation during stroke procedures.</p>
-                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/react-distal-access-catheter-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Nitinol construction for navigation
+                                    during stroke procedures.</p>
+                                <a href="https://i.postimg.cc/SNrYw3Xz/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
-    
+
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/echelon-micro-catheter/echelon-micro-catheter-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Echelon™ Micro Catheter" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/HsQFH4HM/image.png" alt="Echelon™ Micro Catheter"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Echelon™ Micro Catheter</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">Single-lumen catheter for neurovascular procedures.</p>
-                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/echelon-micro-catheter/echelon-micro-catheter-prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Echelon™ Micro Catheter
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Single-lumen catheter for neurovascular
+                                    procedures.</p>
+                                <a href="https://i.postimg.cc/HsQFH4HM/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
-    
+
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/rebar-microcatheter-promast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Rebar™ Micro Catheter" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/KYK6XXYG/image.png" alt="Rebar™ Micro Catheter"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Rebar™ Micro Catheter</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">For delivery of devices or contrast media in vasculature.</p>
-                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/rebar-microcatheter-promast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Rebar™ Micro Catheter
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">For delivery of devices or contrast
+                                    media in vasculature.</p>
+                                <a href="https://i.postimg.cc/KYK6XXYG/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
-    
+
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/marksman-microcatheter-closeup-prod.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Marksman™ Catheter" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/pXhznqy9/image.png" alt="Marksman™ Catheter"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
                                 <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Marksman™ Catheter</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">For introduction of devices and infusion of agents.</p>
-                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/neurological/marksman-microcatheter-closeup-prod.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">For introduction of devices and
+                                    infusion of agents.</p>
+                                <a href="https://i.postimg.cc/pXhznqy9/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
-    
+
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/spine-orthopedic/onyx_bottles_prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" alt="Onyx™ Liquid Embolic System" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/fbsJbhVK/image.png" alt="Onyx™ Liquid Embolic System"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Onyx™ Liquid Embolic System</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">Injectable agent for presurgical embolization of bAVMs.</p>
-                                <a href="https://www.medtronic.com/content/dam/medtronic-wide/imagery/product/spine-orthopedic/onyx_bottles_prodmast.psd.thumb.3600.3600.png?Impolicy=prodlist&Imwidth=396" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Onyx™ Liquid Embolic
+                                    System</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Injectable agent for presurgical
+                                    embolization of bAVMs.</p>
+                                <a href="https://i.postimg.cc/fbsJbhVK/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
-    
+
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://europe.medtronic.com/content/dam/medtronic-com/xd-en/c/od08014-nv-access-delivery/mirage/mirage-header.jpg.transform/transformer-width-500/image.jpg" alt="Mirage™ 0.008 Hydrophilic Guidewire" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/PrjKhgSX/image.png" alt="Mirage™ 0.008 Hydrophilic Guidewire"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Mirage™ 0.008 Hydrophilic Guidewire</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">Provides extra support and selectivity for navigation.</p>
-                                <a href="https://europe.medtronic.com/content/dam/medtronic-com/xd-en/c/od08014-nv-access-delivery/mirage/mirage-header.jpg.transform/transformer-width-500/image.jpg" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Mirage™ 0.008
+                                    Hydrophilic Guidewire</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Provides extra support and selectivity
+                                    for navigation.</p>
+                                <a href="https://i.postimg.cc/PrjKhgSX/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
-    
+
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://europe.medtronic.com/content/dam/medtronic-com/xd-en/c/od08014-nv-access-delivery/apollo-marathon/apollo-marathon-header.jpg.transform/transformer-width-500/image.jpg" alt="Apollo™ and Marathon™" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/YC3tbBsh/image.png" alt="Apollo™ and Marathon™"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Apollo™ and Marathon™</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">Flow-directed catheters for embolization of AVM/AVFs.</p>
-                                <a href="https://europe.medtronic.com/content/dam/medtronic-com/xd-en/c/od08014-nv-access-delivery/apollo-marathon/apollo-marathon-header.jpg.transform/transformer-width-500/image.jpg" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Apollo™ and Marathon™
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Flow-directed catheters for
+                                    embolization of AVM/AVFs.</p>
+                                <a href="https://i.postimg.cc/YC3tbBsh/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
-    
+
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://europe.medtronic.com/content/dam/medtronic-com/xd-en/c/od08014-nv-access-delivery/avigo/avigo-guidewire.png.transform/transformer-width-500/image.png" alt="Avigo™ Hydrophilic Guidewire" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/htbt6df4/image.png" alt="Avigo™ Hydrophilic Guidewire"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Avigo™ Hydrophilic Guidewire</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">Support for tracking and catheter stability.</p>
-                                <a href="https://europe.medtronic.com/content/dam/medtronic-com/xd-en/c/od08014-nv-access-delivery/avigo/avigo-guidewire.png.transform/transformer-width-500/image.png" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Avigo™ Hydrophilic
+                                    Guidewire</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Support for tracking and catheter
+                                    stability.</p>
+                                <a href="https://i.postimg.cc/htbt6df4/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
-    
+
                         <div class="product-card bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://global.medtronic.com/content/dam/medtronic-com/products/neurological/stroke/axium-detatchable-coil-frame-150x150.jpg" alt="Axium™ Detachable Coils" class="w-full h-48 object-contain rounded-md">
+                            <img src="https://i.postimg.cc/Bn1VnTxs/image.png" alt="Axium™ Detachable Coils"
+                                class="w-full h-48 object-contain rounded-md">
                             <div class="p-6">
-                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Axium™ Detachable Coils</h3>
-                                <p class="text-gray-600 dark:text-gray-300 mb-4">Optimal designs for coiling procedures with minimal kickback.</p>
-                                <a href="https://global.medtronic.com/content/dam/medtronic-com/products/neurological/stroke/axium-detatchable-coil-frame-150x150.jpg" target="_blank" class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
+                                <h3 class="text-xl font-bold text-navy-800 dark:text-white mb-2">Axium™ Detachable Coils
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">Optimal designs for coiling procedures
+                                    with minimal kickback.</p>
+                                <a href="https://i.postimg.cc/Bn1VnTxs/image.png" target="_blank"
+                                    class="text-navy-600 dark:text-navy-300 hover:underline">View Image</a>
                             </div>
                         </div>
                     </div>
-    
+
                     <!-- Navigation Buttons -->
-                <button class="swap-button prev-button" onclick="prevSlide()">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </button>
-                <button class="swap-button next-button" onclick="nextSlide()">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
+                    <button class="swap-button prev-button" onclick="prevSlide()">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button class="swap-button next-button" onclick="nextSlide()">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
                 </div>
-    
+
                 <div class="text-center mt-12">
-                    <a href="#contact" class="shake-button inline-block bg-navy-600 hover:bg-navy-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Request Product Catalog</a>
+                    <a href="#contact"
+                        class="shake-button inline-block bg-navy-600 hover:bg-navy-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Request
+                        Product Catalog</a>
                 </div>
             </div>
         </section>
 
-        <!-- Cases/Testimonials Section -->
+        <!-- Testimonials Carousel Section -->
         <section id="cases" class="py-20 bg-gray-50 dark:bg-gray-800">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-navy-800 dark:text-white mb-4">Success Cases</h2>
                     <div class="w-20 h-1 bg-navy-600 mx-auto mb-6"></div>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">See how our solutions have
-                        helped healthcare providers improve patient care.</p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        See how our solutions have helped healthcare providers improve patient care.
+                    </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="case-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
-                        <div class="flex items-center mb-4">
-                            <img src="https://english.onlinekhabar.com/wp-content/uploads/2020/06/KMC-Sinamangal.jpg"
-                                alt="KMC-Sinamangal" class="w-16 h-16 rounded-full object-cover mr-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-navy-800 dark:text-white">KMC Sinamangal</h3>
-                                <p class="text-gray-600 dark:text-gray-300">Sinamangal, Kathandu</p>
+                <!-- Swiper -->
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="case-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://english.onlinekhabar.com/wp-content/uploads/2020/06/KMC-Sinamangal.jpg"
+                                        alt="KMC Sinamangal Hospital Building"
+                                        class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-navy-800 dark:text-white">KMC Sinamangal</h3>
+                                        <p class="text-gray-600 dark:text-gray-300">Sinamangal, Kathmandu</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    "Pashupati Biomed's diagnostic equipment has significantly reduced our patient wait
+                                    times and improved
+                                    diagnostic accuracy by 30%. Their support team is always available when we need
+                                    assistance."
+                                </p>
+                                <div class="flex items-center space-x-1">
+                                    <!-- 5 Stars -->
+                                    <div class="flex items-center space-x-1">
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <!-- Repeat above SVG 4 more times for 5 stars -->
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">"Pashupati Biomed's diagnostic equipment has
-                            significantly reduced our patient wait times and improved diagnostic accuracy by 30%. Their
-                            support team is always available when we need assistance."</p>
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                </path>
-                            </svg>
-                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                </path>
-                            </svg>
-                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                </path>
-                            </svg>
-                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81 .588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                </path>
-                            </svg>
-                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81 .588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                </path>
-                            </svg>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="case-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://english.pardafas.com/wp-content/uploads/2023/12/patan-Hospital-1024x576.jpg"
+                                        alt="Patan Hospital Hospital Building"
+                                        class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-navy-800 dark:text-white">Patan Hospital</h3>
+                                        <p class="text-gray-600 dark:text-gray-300">Patan, Lalitpur</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    "The surgical instruments from Pashupati Biomed
+                                    have transformed our operating rooms. Their ergonomic design reduces surgeon
+                                    fatigue, and
+                                    the durability means we've reduced replacement costs by 40%."
+                                </p>
+                                <div class="flex items-center space-x-1">
+                                    <div class="flex items-center space-x-1">
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    </template>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Slides3 -->
+                        <div class="swiper-slide">
+                            <div class="case-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://th.bing.com/th/id/R.3fa374705a1fffd03e7b40632c005715?rik=TSIKq2ZwMxBeAw&riu=http%3a%2f%2fwww.hamrodoctor.com%2fimage.php%3fsrc%3dhttp%3a%2f%2fwww.hamrodoctor.com%2fuploads%2fhospitals%2f5b8f83f7093fe.jpg%26w%3d450&ehk=K0J4BITR%2bSoSRAMHe5LW7JwIS6oqYlKF7%2fKEwUho5yQ%3d&risl=&pid=ImgRaw&r=0"
+                                        alt="Norvic International Hospital Building"
+                                        class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-navy-800 dark:text-white">Norvic International
+                                            Hospital</h3>
+                                        <p class="text-gray-600 dark:text-gray-300">Thapathali, Kathmandu</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    "Pashupati Biomed's advanced diagnostic solutions have enhanced our operational
+                                    efficiency, cutting down
+                                    diagnosis time by 25% and improving patient outcomes. Their dedicated support is
+                                    exceptional."
+                                </p>
+                                <div class="flex items-center space-x-1">
+                                    <!-- 5 Stars -->
+                                    <div class="flex items-center space-x-1">
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- slides4 -->
+                       
+                        <div class="swiper-slide">
+                            <div class="case-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
+                                <div class="flex items-center mb-4">
+                                    <img src="https://th.bing.com/th/id/OIP.FGYFDH2yVWGtigrc3SBHyQHaFj?rs=1&pid=ImgDetMain"
+                                        alt="Tribhuvan University Teaching Hospital Building"
+                                        class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-navy-800 dark:text-white">TU Teaching Hospital</h3>
+                                        <p class="text-gray-600 dark:text-gray-300">Maharajgunj, Kathmandu</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    "Pashupati Biomed's cutting-edge diagnostic tools have streamlined our processes,
+                                    reducing patient turnaround time
+                                    by 20% and enhancing diagnostic precision. Their reliable support ensures seamless
+                                    operations."
+                                </p>
+                                <div class="flex items-center space-x-1">
+                                    <!-- 5 Stars -->
+                                    <div class="flex items-center space-x-1">
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more .swiper-slide here if needed -->
+
                     </div>
 
-                    <div class="case-card bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
-                        <div class="flex items-center mb-4">
-                            <img src="https://english.pardafas.com/wp-content/uploads/2023/12/patan-Hospital-1024x576.jpg"
-                                alt="Regional Medical Center" class="w-16 h-16 rounded-full object-cover mr-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-navy-800 dark:text-white">Patan Hospital</h3>
-                                <p class="text-gray-600 dark:text-gray-300">Lalitpur, Nepal</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">"The surgical instruments from Pashupati Biomed
-                            have transformed our operating rooms. Their ergonomic design reduces surgeon fatigue, and
-                            the durability means we've reduced replacement costs by 40%."</p>
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81 .588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                </path>
-                            </svg>
-                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81 .588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                </path>
-                            </svg>
-                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81 .588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                </path>
-                            </svg>
-                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81 .588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                </path>
-                            </svg>
-                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3 .921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784 .57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81 .588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                </path>
-                            </svg>
-                        </div>
-                    </div>
+                    <!-- Pagination Dots -->
+                    <div class="swiper-pagination mt-6"></div>
                 </div>
             </div>
         </section>
+
         <!-- Contact Us Section -->
         <section id="contact" class="py-20 bg-white dark:bg-gray-900">
             <div class="container mx-auto px-4">
@@ -1029,7 +1342,8 @@
                 </div>
             </div>
             <div class="border-t border-navy-800 mt-8 pt-8 text-center text-gray-400">
-                <p>© 2025 Pashupati Biomed PVT. LTD. All rights reserved. Made BY <a href="http://rikeshdahal.com.np" target="_blank" rel="noopener noreferrer">@RikeshDahal</a> </p>
+                <p>© 2025 Pashupati Biomed PVT. LTD. All rights reserved. Made BY <a href="http://rikeshdahal.com.np"
+                        target="_blank" rel="noopener noreferrer">@RikeshDahal</a> </p>
             </div>
         </div>
     </footer>
@@ -1177,6 +1491,33 @@
                 });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+        });
+
+    </script>
+
 </body>
+
 
 </html>
