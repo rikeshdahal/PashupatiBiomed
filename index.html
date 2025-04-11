@@ -76,16 +76,31 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
             cursor: pointer;
             z-index: 10;
+            /* Glassmorphism effect */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* Gradient overlay */
+            /* background: linear-gradient(135deg, rgba(30, 58, 138, 0.8), rgba(59, 130, 246, 0.8)); */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            /* Initial bounce animation */
+            animation: bounce 0.5s ease;
         }
 
         .next-button {
-            right: 10px;
+            right: 0;
+        }
+        .prev-button {
+            left: 0;
         }
         /* Custom styles */
         .hero-image {
@@ -666,8 +681,17 @@
                         </div>
                     </div>
     
-                    <!-- Next Button -->
-                    <button class="swap-button next-button" onclick="nextSlide()">→</button>
+                    <!-- Navigation Buttons -->
+                <button class="swap-button prev-button" onclick="prevSlide()">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="swap-button next-button" onclick="nextSlide()">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
                 </div>
     
                 <div class="text-center mt-12">
@@ -1032,7 +1056,17 @@
             currentIndex = (currentIndex + 1) % totalSlides;
             updateCarousel();
         }
+        function prevSlide() {
+            currentIndex--;
+            updateCarousel();
 
+            if (currentIndex === -1) {
+                setTimeout(() => {
+                    currentIndex = totalSlides - 1;
+                    updateCarousel(false);
+                }, 500);
+            }
+        }
         // Auto-scroll after 5 seconds delay
         setInterval(() => {
             nextSlide();
